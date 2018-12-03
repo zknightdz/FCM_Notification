@@ -1,0 +1,43 @@
+apply plugin: 'com.android.library'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        useLibrary 'android.test.runner'
+        useLibrary 'android.test.base'
+        useLibrary 'android.test.mock'
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.1.0'
+    androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.espressoVersion"
+    api 'com.google.firebase:firebase-messaging:17.3.4'
+    androidTestImplementation "com.android.support.test.espresso:espresso-contrib:$rootProject.espressoVersion"
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.espressoVersion"
+    implementation 'com.google.code.gson:gson:2.8.5'
+    androidTestImplementation 'androidx.test.uiautomator:uiautomator:2.2.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.0.0'
+}
+
+apply plugin: 'com.google.gms.google-services'
